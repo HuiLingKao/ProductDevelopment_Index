@@ -637,4 +637,4 @@ def update_graph(xaxis_column_name, yaxis_column_name, xaxis_type, yaxis_type, s
 server = app.server
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
