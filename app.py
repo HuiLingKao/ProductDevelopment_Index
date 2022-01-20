@@ -163,11 +163,11 @@ app.layout = html.Div(
                         html.Div(
                             [
                                 html.H4(
-                                    "Multiple Indexes of Countries by Year",
+                                    "Multiple Indicators of Countries by Year",
                                     style={"font-weight": "bold"},
                                 ),
                                 html.H5(
-                                    "Analysis of the relationship between indexes and within the countries",
+                                    "Analysis of the relationship between indicators and within the countries",
                                     style={"margin-top": "0px"}
                                 ),
                             ]
@@ -190,11 +190,13 @@ app.layout = html.Div(
                 html.Div(
                     [
 
-                        html.H6("Multiple Indexes",
+                        html.H6("Multiple Indicators",
                                 style={"margin-top": "0", "font-weight": "bold", "text-align": "center"}),
 
                         html.P(
-                            "Wait to be written!!!!!!!",
+                            "Indicator can help us realizing the world better. "
+                            "There are multiple indexes in our best-pick list. "
+                            "Choose an Indicator and a Year to observe how the world is changing.",
                             className="control_label", style={"text-align": "justify"}
                         ),
                         html.P(),
@@ -206,7 +208,7 @@ app.layout = html.Div(
                         ]),
 
                         html.Div([
-                            html.P("Select a Index", className="control_label",
+                            html.P("Select an Indicator", className="control_label",
                                    style={"text-align": "center", "font-weight": "bold"}),
                             dropdown_index,
                             ]),
@@ -270,11 +272,12 @@ app.layout = html.Div(
 
         html.Div(
             [
-                html.H6("General Index information in different Unity",
+                html.H6("General Indicator information in different Union / Continent",
                         style={"margin-top": "0", "font-weight": "bold", "text-align": "center"}),
                 html.P(
-                    "Wait to be written!!!!!!!",
-                    className="control_label", style={"text-align": "justify"}),
+                    "We selected multiple union like Europe-Union, G20 and OECD etc. "
+                    "Watch how histogram change with your selection! ",
+                    className="control_label", style={"text-align": "center"}),
                 html.P(id="slider-text", children="Drag the slider to change the year:",
                        style={"text-align": "center"}),
                 slider_year,
@@ -296,10 +299,10 @@ app.layout = html.Div(
                         html.H6("Exploring correlations",
                                 style={"margin-top": "0", "font-weight": "bold", "text-align": "center"}),
                         html.P(
-                            "In the heatmap below, the correlations in indexes can be explored.",
+                            "In the heatmap below, the correlations in indicators can be explored.",
                             className="control_label", style={"text-align": "justify"}),
                         # html.P("""<br>"""),
-                        html.P("Select a Index", style={"font-weight": "bold", "text-align": "center"}),
+                        html.P("Select an Indicator", style={"font-weight": "bold", "text-align": "center"}),
                         cor_behav,
 
                         html.Div([dcc.Graph(id="cor_ma")], className="pretty_container twelve columns"),
@@ -309,7 +312,7 @@ app.layout = html.Div(
                 ),
 
                 html.Div(
-                    [html.H6("Analysing the correlations between Indexes",
+                    [html.H6("Analysing the correlations between Indicators",
                              style={"margin-top": "0", "font-weight": "bold", "text-align": "center"}),
                      html.P(
                          "Below, the correlations can be analysed in more detail. \
@@ -317,7 +320,7 @@ app.layout = html.Div(
                          className="control_label", style={"text-align": "justify"}),
 
                      html.Div([
-                         html.P("Select a Index", className="control_label",
+                         html.P("Select an Indicator", className="control_label",
                                 style={"font-weight": "bold", "text-align": "center"}),
                          dcc.Dropdown(
                              id='xaxis-column',
@@ -334,7 +337,7 @@ app.layout = html.Div(
                      ], className="pretty_container sixish columns", ),
 
                      html.Div([
-                         html.P("Select another Index", className="control_label",
+                         html.P("Select another Indicator", className="control_label",
                                 style={"font-weight": "bold", "text-align": "center"}),
                          dcc.Dropdown(
                              id='yaxis-column',
@@ -351,7 +354,7 @@ app.layout = html.Div(
                      ], className="pretty_container sixish columns", ),
 
                      html.Div([
-                         html.P("Select Scatter Index", className="control_label",
+                         html.P("Select Scatter Indicator", className="control_label",
                                 style={"font-weight": "bold", "text-align": "center"}),
                          dcc.Dropdown(
                              id="scatter_size",
@@ -377,7 +380,7 @@ app.layout = html.Div(
 
                 html.P(
                     """
-                    Authors: 09770004 Mr.Chen/ 09770006 Mrs.Ro / 09770010 Miss.Kao/ 09770023 Mr.Haung/ 09770024 Mr.Ro
+                    Authors: 09770004 Mr.Chen/ 09770006 Miss.Lo / 09770010 Miss.Kao/ 09770023 Mr.Haung/ 09770024 Mr.Lo
                     """,
                     style={"text-align": "center", "font-size": "12pt"}
                 ),
@@ -637,4 +640,4 @@ def update_graph(xaxis_column_name, yaxis_column_name, xaxis_type, yaxis_type, s
 server = app.server
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
