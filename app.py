@@ -12,8 +12,9 @@ import json
 
 mapbox_access_token = "pk.eyJ1IjoiYWxpY2hpbm8zNjkiLCJhIjoiY2t5OWtydWUwMDdmZzJxbzVlbXU5cW5yMiJ9.VAkAcACtyiKkMtEYydxdGg"
 
-df = pd.read_excel('Data0113r.xls', dtype={"id": str})
-df_scatter = pd.read_excel('Data0113r_c.xls', dtype={"id": str})
+df = pd.read_csv('Data0113r.csv', dtype={"id": str})
+df_scatter = pd.read_csv('Data0113r_c.csv', dtype={"id": str})
+
 
 year_list = list(df['Year'].unique())
 index_all_list = list(df.iloc[:, 1:31].columns)
@@ -24,8 +25,7 @@ index_list = ['Birth_rate_per_1K_people', 'CPI_(2010=100)', 'Freedom', 'Generosi
               'Negative_affect', 'Perceptions_of_Corruption', 'Population', 'Positive_affect', 'Sex_Ratio',
               'Social_Trust', 'Social_Support', 'Wage']
 unity_list = ["EU", "G20", "APEC", "OECD", "Asia", "Europe", "Africa", "Oceania", "North America", "South America"]
-# clusters = pd.read_csv("final_clusters.csv")
-# box_cluster = pd.read_csv("box_cluster.csv")
+
 
 with open("countries.geojson") as fdata:
     country_polygon = json.load(fdata)
@@ -641,8 +641,3 @@ server = app.server
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-
-
-
-
-
